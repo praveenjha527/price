@@ -56,7 +56,7 @@ def get_max_price(item):
 
 
 #all_items=[{'_id':'1','url':'http://www.snapdeal.com/product/huawei-ascend-g510/1372906'},{'_id':'1','url':'https://paytm.com/shop/p/micromax-canvas-a1-android-one-black-MOBMICROMAX-CANICE-39090A92349C2'}]
-pool = ThreadPool(4) 
+pool = ThreadPool(6) 
 all_items=final()
 results = pool.map(get_max_price,all_items)
 pool.close() 
@@ -68,4 +68,19 @@ if error_urls:
 	map(get_max_price,error_urls)
 
 print final_dict
+
+error_lists=[]
+success_lists=[]
+
+for item in final_dict:
+	mrps=final_dict[item]
+	if max(mrps)==-1:
+		error_lists.append(item)
+	else:
+		success_lists.append([item,max(mrps)])
+
+
+
+
+
 
