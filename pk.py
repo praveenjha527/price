@@ -34,7 +34,7 @@ print main_lis
 #main_lis=map(int,main_lis)
 __raw__=[{'$group':{'_id':'$r42product','url':{'$addToSet':'$url'}}}]
 result=collection.aggregate(__raw__)
-print result
+#print result
 
 
 d={}
@@ -48,7 +48,7 @@ for da in range(len(main_lis)):
     else:
         not_exist.append({'id':main_lis[da]})
 
-
+print k
 
 
 '''
