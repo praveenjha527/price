@@ -54,7 +54,7 @@ def final():
     for key_dict in k:
         for item in key_dict['url']:
             final_list.append({key_dict['id']:item})
-print final_list
+    return final_list
 
 
 
