@@ -29,10 +29,10 @@ main_lis=[]
 li=map(str,li)
 for k in range(len(li)):
     main_lis.append(li[k].strip('number:.0'))
-print main_lis
+print len(main_lis)
 #main_lis=map(int,main_lis)
  
-
+'''
 quer=[]
 for dta in range(len(main_lis)):
     qe=collection.find({"r42product":main_lis[dta]},{"url":1})
@@ -42,7 +42,7 @@ for dta in range(len(main_lis)):
     else:
         quer.append(qer)
 
-print dumps(quer)
+print dumps(quer)'''
         
     
  
