@@ -32,8 +32,8 @@ for k in range(len(li)):
 print main_lis
 #
 #main_lis=map(int,main_lis)
-
-result=collection.aggregate(__raw__={'$group':{'_id':'$r42product','url':{'$addToSet':'$url'}}})
+__raw__=[{'$group':{'_id':'$r42product','url':{'$addToSet':'$url'}}}]
+result=collection.aggregate(__raw__)
 print result
 '''
 quer=[]
