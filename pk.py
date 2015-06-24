@@ -47,12 +47,12 @@ for da in range(len(main_lis)):
         k.append({'id':main_lis[da],'url':d[main_lis[da]]})
     else:
         not_exist.append({'id':main_lis[da]})
-'''keys=k.keys()
-final_list={}
-for key in keys():
-    for item in k[key]:
-        final_list.append({key:item})
-print final_list'''
+
+final_list=[]
+for key_dict in k:
+    for item in key_dict['id']:
+        final_list.append({key_dict['id']:item})
+print final_list
 
 
 
