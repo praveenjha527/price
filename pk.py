@@ -35,6 +35,22 @@ print main_lis
 __raw__=[{'$group':{'_id':'$r42product','url':{'$addToSet':'$url'}}}]
 result=collection.aggregate(__raw__)
 print result
+
+
+d={}
+for item in result['result']:
+    d[item['_id']]=item['url']
+k=[]
+not_exist=[]
+for da in range(len(main_lis)):
+    if d.has_key(main_lis[da]):
+        k.append({'id':main_lis[da],'url':d[main_lis[da]]})
+    else:
+        not_exist.append({'id':main_lis[da]})
+
+
+
+
 '''
 quer=[]
 for dta in range(len(main_lis)):
