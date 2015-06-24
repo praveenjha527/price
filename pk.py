@@ -46,7 +46,7 @@ for da in range(len(main_lis)):
     if d.has_key(main_lis[da]):
         k.append({'id':main_lis[da],'url':d[main_lis[da]]})
     else:
-        not_exist.append({'id':main_lis[da]})
+        not_exist.append(main_lis[da])
 
 
 def final():

@@ -3,6 +3,7 @@ import requests
 from multiprocessing.dummy import Pool as ThreadPool
 from pk import * 
 final_dict={}
+error_urls=[]
 def get_max_price(item):
 	flipkart_xpaths=["//a[@class='pricing fk-display-block tpadding5 lpadding10 rpadding10']//text()","//div[@class='pricing line']//span//text()"]
 	snapdeal_xpaths=["//span[@id='original-price-id']/text()"]
@@ -40,6 +41,8 @@ def get_max_price(item):
 				
 			
 	except Exception,e :
+		if 'snapdeal' in url or 'flipkart' in url:
+			error_urls.append({id:url})
 		print str(e),id,url
 	
 	print max_price
@@ -58,5 +61,9 @@ all_items=final()
 results = pool.map(get_max_price,all_items)
 pool.close() 
 pool.join() 
+
+if error_urls:
+	map(get_max_price,error_urls)
+
 print final_dict
 
