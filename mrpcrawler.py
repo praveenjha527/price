@@ -62,7 +62,9 @@ results = pool.map(get_max_price,all_items)
 pool.close() 
 pool.join() 
 
+print "crawling finished"
 if error_urls:
+	print error_urls
 	map(get_max_price,error_urls)
 
 print final_dict
