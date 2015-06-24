@@ -29,7 +29,7 @@ main_lis=[]
 li=map(str,li)
 for k in range(len(li)):
     main_lis.append(li[k].strip('number:.0'))
-print main_lis
+#print main_lis
 #
 #main_lis=map(int,main_lis)
 __raw__=[{'$group':{'_id':'$r42product','url':{'$addToSet':'$url'}}}]
@@ -47,8 +47,13 @@ for da in range(len(main_lis)):
         k.append({'id':main_lis[da],'url':d[main_lis[da]]})
     else:
         not_exist.append({'id':main_lis[da]})
+keys=k.keys()
+final_list={}
+for key in keys():
+    for item in k[key]:
+        final_list.append({key:item})
+print final_list
 
-print k
 
 
 '''
