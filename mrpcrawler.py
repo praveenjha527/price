@@ -6,14 +6,14 @@ final_dict={}
 def get_max_price(item):
 	flipkart_xpaths=["//a[@class='pricing fk-display-block tpadding5 lpadding10 rpadding10']//text()","//div[@class='pricing line']//span//text()"]
 	snapdeal_xpaths=["//span[@id='original-price-id']/text()"]
-	id=item['_id']
-	url=item['url']
+	id=item.keys()[0]
+	url=item[id]
 	prices=[]
 	max_price=-1
 	try:
-		page=requests.get(url)
-		tree=html.fromstring(page.text)
 		if 'flipkart' in url:
+			page=requests.get(url)
+		    tree=html.fromstring(page.text)
 			flipkart_price=[]
 			for x_path in flipkart_xpaths:
 				all_fk_prices=tree.xpath(x_path)
@@ -26,6 +26,8 @@ def get_max_price(item):
 				max_price=max(flipkart_price)			
 		
 		if 'snapdeal' in url:
+			page=requests.get(url)
+		    tree=html.fromstring(page.text)
 			snapdeal_price=[]
 			for x_path in snapdeal_xpaths:
 				all_sd_prices=tree.xpath(x_path)
