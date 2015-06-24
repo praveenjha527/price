@@ -29,25 +29,8 @@ main_lis=[]
 li=map(str,li)
 for k in range(len(li)):
     main_lis.append(li[k].strip('number:.0'))
-print len(main_lis)
+print main_lis
 #main_lis=map(int,main_lis)
- 
-'''
-quer=[]
-for dta in range(len(main_lis)):
-    qe=collection.find({"r42product":main_lis[dta]},{"url":1})
-    qer=[x for items in qe]
-    if qer=='':
-        coll_dict={'id':main_list[dta]}
-    else:
-        quer.append(qer)
 
-print dumps(quer)'''
-        
-    
- 
-'''
-for i in range(222):
-    print i
-    row=xl.row(i)
-    print row[0]'''
+result=collection.aggregate(__raw__={$group:{'_id':'$r42product','url':{$addToSet:'$url'}}})
+print result
