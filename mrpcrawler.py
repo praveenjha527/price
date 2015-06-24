@@ -82,14 +82,14 @@ for item in final_dict:
 
 
 error_lists.extend(not_exist)
- 
+
 import json
 with open('success_file.json','w') as writefile:
-	json.dumps(success_lists,writefile)
+	json.dump(success_lists,writefile)
 
 
 with open('error_file.json','w') as writefile2:
-	json.dumps(error_lists,writefile2)
+	json.dump(error_lists,writefile2)
 
 
 
