@@ -52,3 +52,7 @@ def final():
 
 
 final()
+
+import json
+with open('success_file.json','w') as writefile:
+	json.dump(final_list,writefile)
